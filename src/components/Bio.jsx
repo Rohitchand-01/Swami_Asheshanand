@@ -7,7 +7,7 @@ const Bio = () => {
   const t = translations[language].bio;
 
   return (
-    <section className="bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-500 py-16 pt-4 text-center text-white">
+    <section className="bg-gradient-to-r from-yellow-500 via-orange-400 to-yellow-600 py-16 pt-4 text-center text-white">
       <div className="mx-auto px-6 lg:px-20 container">
         <h2 className="drop-shadow-lg mb-8 font-bold text-4xl text-white lg:text-5xl">{t.title}</h2>
         <p className="mx-auto mb-6 max-w-4xl text-lg lg:text-xl leading-relaxed">{t.paragraph1}</p>

@@ -2,7 +2,7 @@ const translations = {
   en: {
     navbar: {
       home: 'Home',
-      about: 'About',
+      bio: 'Bio',
       contact: 'Contact'
     },
     bio: {
@@ -23,7 +23,7 @@ const translations = {
   hi: {
     navbar: {
       home: 'होम',
-      about: 'के बारे में',
+      bio: 'जीवनी',
       contact: 'संपर्क करें'
     },
     bio: {

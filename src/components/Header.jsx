@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext'; // Import the LanguageContext
-import logo from '../assets/logo.png'; // Import the logo image
+import { useLanguage } from '../context/LanguageContext';
+import logo from '../assets/logo.png';
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
-  const { language, toggleLanguage, translations } = useLanguage(); // Destructure language, toggleLanguage, and translations
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown menu
+  const { language, toggleLanguage, translations } = useLanguage();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -22,21 +22,21 @@ const Header = () => {
   };
 
   const handleLanguageChange = (lang) => {
-    toggleLanguage(lang); // This will update the language in the context
-    setIsDropdownOpen(false); // Close the dropdown after selecting a language
+    toggleLanguage(lang);
+    setIsDropdownOpen(false);
   };
 
   return (
     <>
       {/* Fixed Header */}
-      <header className="top-0 right-0 left-0 z-50 fixed bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg w-full h-16">
+      <header className="top-0 right-0 left-0 z-50 fixed bg-gradient-to-r from-orange-600 via-yellow-500 to-orange-400 shadow-lg w-full h-16">
         <div className="flex justify-between items-center mx-auto px-8 py-4 container">
           {/* Logo */}
           <div>
             <img
-              src={logo} // Use the imported logo
+              src={logo}
               alt="Logo"
-              className="w-60 h-12 transition-transform duration-300 hover:scale-110" // Hover effect for logo
+              className="w-60 h-12 transition-transform duration-300 hover:scale-110"
             />
           </div>
 
@@ -44,8 +44,8 @@ const Header = () => {
           <nav className="md:flex space-x-8 hidden text-white">
             <Link
               to="/"
-              className={`hover:text-yellow-500 transition-all duration-300 ${
-                activeLink === 'home' ? 'text-yellow-500 underline' : ''
+              className={`hover:text-yellow-200 transition-all duration-300 ${
+                activeLink === 'home' ? 'text-yellow-200 underline' : ''
               }`}
               onClick={() => handleLinkClick('home')}
             >
@@ -53,17 +53,17 @@ const Header = () => {
             </Link>
             <Link
               to="/bio"
-              className={`hover:text-yellow-500 transition-all duration-300 ${
-                activeLink === 'bio' ? 'text-yellow-500 underline' : ''
+              className={`hover:text-yellow-200 transition-all duration-300 ${
+                activeLink === 'bio' ? 'text-yellow-200 underline' : ''
               }`}
               onClick={() => handleLinkClick('bio')}
             >
-              {translations[language].navbar.about}
+              {translations[language].navbar.bio}
             </Link>
             <Link
               to="/contact"
-              className={`hover:text-yellow-500 transition-all duration-300 ${
-                activeLink === 'contact' ? 'text-yellow-500 underline' : ''
+              className={`hover:text-yellow-200 transition-all duration-300 ${
+                activeLink === 'contact' ? 'text-yellow-200 underline' : ''
               }`}
               onClick={() => handleLinkClick('contact')}
             >
@@ -75,7 +75,7 @@ const Header = () => {
           <div className="relative">
             <button
               onClick={toggleDropdown}
-              className="md:block hidden bg-indigo-600 hover:bg-indigo-700 px-6 py-2 rounded-full text-white transition-all duration-300"
+              className="md:block hidden bg-orange-700 hover:bg-orange-800 px-6 py-2 rounded-full text-white transition-all duration-300"
             >
               {language === 'en' ? 'English' : 'हिंदी'}
             </button>
@@ -83,13 +83,13 @@ const Header = () => {
               <div className="right-0 absolute bg-white shadow-lg mt-2 rounded-md w-40">
                 <button
                   onClick={() => handleLanguageChange('en')}
-                  className="hover:bg-indigo-600 px-4 py-2 w-full text-left hover:text-white"
+                  className="hover:bg-orange-500 px-4 py-2 w-full text-left hover:text-white"
                 >
                   English
                 </button>
                 <button
                   onClick={() => handleLanguageChange('hi')}
-                  className="hover:bg-indigo-600 px-4 py-2 w-full text-left hover:text-white"
+                  className="hover:bg-orange-500 px-4 py-2 w-full text-left hover:text-white"
                 >
                   हिंदी
                 </button>
@@ -121,16 +121,16 @@ const Header = () => {
       </header>
 
       {/* Main Content */}
-      <div className="pt-16"> {/* Add padding top to ensure content starts below the header */}
+      <div className="pt-16">
         {/* Your main content goes here */}
       </div>
 
       {/* Sidebar (visible on smaller screens) */}
       {isSidebarOpen && (
         <div className="z-40 fixed inset-0 flex justify-end bg-gray-800 bg-opacity-75">
-          <div className="space-y-6 bg-white shadow-lg p-6 w-64 h-full">
+          <div className="space-y-6 bg-gradient-to-r from-orange-600 via-yellow-500 to-orange-400 shadow-lg p-6 w-64 h-full">
             <button
-              className="mb-6 text-gray-600 focus:outline-none"
+              className="mb-6 text-white focus:outline-none"
               onClick={toggleSidebar}
             >
               <svg
@@ -151,8 +151,8 @@ const Header = () => {
             <nav className="space-y-4">
               <Link
                 to="/"
-                className={`block text-gray-800 hover:text-yellow-500 transition-all duration-300 ${
-                  activeLink === 'home' ? 'text-yellow-500 underline' : ''
+                className={`block text-white hover:text-yellow-200 transition-all duration-300 ${
+                  activeLink === 'home' ? 'text-yellow-200 underline' : ''
                 }`}
                 onClick={() => {
                   handleLinkClick('home');
@@ -163,20 +163,20 @@ const Header = () => {
               </Link>
               <Link
                 to="/bio"
-                className={`block text-gray-800 hover:text-yellow-500 transition-all duration-300 ${
-                  activeLink === 'bio' ? 'text-yellow-500 underline' : ''
+                className={`block text-white hover:text-yellow-200 transition-all duration-300 ${
+                  activeLink === 'bio' ? 'text-yellow-200 underline' : ''
                 }`}
                 onClick={() => {
                   handleLinkClick('bio');
                   toggleSidebar();
                 }}
               >
-                {translations[language].navbar.about}
+                {translations[language].navbar.bio}
               </Link>
               <Link
                 to="/contact"
-                className={`block text-gray-800 hover:text-yellow-500 transition-all duration-300 ${
-                  activeLink === 'contact' ? 'text-yellow-500 underline' : ''
+                className={`block text-white hover:text-yellow-200 transition-all duration-300 ${
+                  activeLink === 'contact' ? 'text-yellow-200 underline' : ''
                 }`}
                 onClick={() => {
                   handleLinkClick('contact');
@@ -185,32 +185,6 @@ const Header = () => {
               >
                 {translations[language].navbar.contact}
               </Link>
-
-              {/* Language Dropdown in Sidebar */}
-              <div className="relative">
-                <button
-                  onClick={toggleDropdown}
-                  className="bg-indigo-600 hover:bg-indigo-700 px-6 py-2 rounded-full w-full text-white transition-all duration-300"
-                >
-                  {language === 'en' ? 'English' : 'हिंदी'}
-                </button>
-                {isDropdownOpen && (
-                  <div className="left-0 absolute bg-white shadow-lg mt-2 rounded-md w-full">
-                    <button
-                      onClick={() => handleLanguageChange('en')}
-                      className="hover:bg-indigo-600 px-4 py-2 w-full text-left hover:text-white"
-                    >
-                      English
-                    </button>
-                    <button
-                      onClick={() => handleLanguageChange('hi')}
-                      className="hover:bg-indigo-600 px-4 py-2 w-full text-left hover:text-white"
-                    >
-                      हिंदी
-                    </button>
-                  </div>
-                )}
-              </div>
             </nav>
           </div>
         </div>

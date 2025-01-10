@@ -2,22 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apply the slideUp animation to each section */
-.hero-section {
+/* Extend Tailwind with custom animations */
+@layer utilities {
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-up {
     animation: slideUp 1s ease-out;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
-  
-  .hero-section:nth-child(even) {
-    animation: slideUp 1s ease-out 0.5s;
+
+  /* Animation with delays for even and odd sections */
+  .slide-up:nth-child(even) {
+    animation-delay: 0.5s;
   }
-  
-  .hero-section:nth-child(odd) {
-    animation: slideUp 1s ease-out 1s;
+
+  .slide-up:nth-child(odd) {
+    animation-delay: 1s;
   }
-  
-  /* You can adjust these delay timings to control the speed */
-  
+}
+
+/* Hide scrollbar globally but allow scrolling */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto; /* Allow scrolling */
+}
+
+/* Allow scrolling but hide the scrollbar */
+body {
+  overflow-y: scroll; /* Allow scrolling */
+  -ms-overflow-style: none; /* For Internet Explorer */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: transparent transparent; /* For Firefox */
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Make the track transparent */
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent; /* Make the thumb transparent */
+}
+
+/* Optional: Style the scrollbar thumb when hovered */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2); /* Add a subtle color when hovered */
+}
