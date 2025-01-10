@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply the slideUp animation to each section */
+.hero-section {
+    animation: slideUp 1s ease-out;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-section:nth-child(even) {
+    animation: slideUp 1s ease-out 0.5s;
+  }
+  
+  .hero-section:nth-child(odd) {
+    animation: slideUp 1s ease-out 1s;
+  }
+  
+  /* You can adjust these delay timings to control the speed */
+  
